@@ -1,0 +1,15 @@
+C:\Users\kubat\source\repos\ReCapProject\DataAccess\bin\Debug\net7.0\DataAccess.deps.json
+C:\Users\kubat\source\repos\ReCapProject\DataAccess\bin\Debug\net7.0\DataAccess.dll
+C:\Users\kubat\source\repos\ReCapProject\DataAccess\bin\Debug\net7.0\DataAccess.pdb
+C:\Users\kubat\source\repos\ReCapProject\DataAccess\bin\Debug\net7.0\Entites.dll
+C:\Users\kubat\source\repos\ReCapProject\DataAccess\bin\Debug\net7.0\Entites.pdb
+C:\Users\kubat\source\repos\ReCapProject\DataAccess\obj\Debug\net7.0\DataAccess.csproj.AssemblyReference.cache
+C:\Users\kubat\source\repos\ReCapProject\DataAccess\obj\Debug\net7.0\DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kubat\source\repos\ReCapProject\DataAccess\obj\Debug\net7.0\DataAccess.AssemblyInfoInputs.cache
+C:\Users\kubat\source\repos\ReCapProject\DataAccess\obj\Debug\net7.0\DataAccess.AssemblyInfo.cs
+C:\Users\kubat\source\repos\ReCapProject\DataAccess\obj\Debug\net7.0\DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\kubat\source\repos\ReCapProject\DataAccess\obj\Debug\net7.0\DataAccess.csproj.CopyComplete
+C:\Users\kubat\source\repos\ReCapProject\DataAccess\obj\Debug\net7.0\DataAccess.dll
+C:\Users\kubat\source\repos\ReCapProject\DataAccess\obj\Debug\net7.0\refint\DataAccess.dll
+C:\Users\kubat\source\repos\ReCapProject\DataAccess\obj\Debug\net7.0\DataAccess.pdb
+C:\Users\kubat\source\repos\ReCapProject\DataAccess\obj\Debug\net7.0\ref\DataAccess.dll

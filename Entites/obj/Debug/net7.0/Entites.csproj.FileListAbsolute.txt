@@ -1,0 +1,12 @@
+C:\Users\kubat\source\repos\ReCapProject\Entites\bin\Debug\net7.0\Entites.deps.json
+C:\Users\kubat\source\repos\ReCapProject\Entites\bin\Debug\net7.0\Entites.dll
+C:\Users\kubat\source\repos\ReCapProject\Entites\bin\Debug\net7.0\Entites.pdb
+C:\Users\kubat\source\repos\ReCapProject\Entites\obj\Debug\net7.0\Entites.csproj.AssemblyReference.cache
+C:\Users\kubat\source\repos\ReCapProject\Entites\obj\Debug\net7.0\Entites.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kubat\source\repos\ReCapProject\Entites\obj\Debug\net7.0\Entites.AssemblyInfoInputs.cache
+C:\Users\kubat\source\repos\ReCapProject\Entites\obj\Debug\net7.0\Entites.AssemblyInfo.cs
+C:\Users\kubat\source\repos\ReCapProject\Entites\obj\Debug\net7.0\Entites.csproj.CoreCompileInputs.cache
+C:\Users\kubat\source\repos\ReCapProject\Entites\obj\Debug\net7.0\Entites.dll
+C:\Users\kubat\source\repos\ReCapProject\Entites\obj\Debug\net7.0\refint\Entites.dll
+C:\Users\kubat\source\repos\ReCapProject\Entites\obj\Debug\net7.0\Entites.pdb
+C:\Users\kubat\source\repos\ReCapProject\Entites\obj\Debug\net7.0\ref\Entites.dll
