@@ -1028,9 +1028,22 @@
           }
         }
       },
+      "Core/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Core.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Core.dll": {}
+        }
+      },
       "Entites/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Core": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Entites.dll": {}
         },
@@ -3182,6 +3195,11 @@
         "version.txt"
       ]
     },
+    "Core/1.0.0": {
+      "type": "project",
+      "path": "../Core/Core.csproj",
+      "msbuildProject": "../Core/Core.csproj"
+    },
     "Entites/1.0.0": {
       "type": "project",
       "path": "../Entites/Entites.csproj",
@@ -3190,6 +3208,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Core >= 1.0.0",
       "Entites >= 1.0.0",
       "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.3"
     ]
@@ -3221,6 +3240,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "C:\\Users\\kubat\\source\\repos\\ReCapProject\\Core\\Core.csproj": {
+              "projectPath": "C:\\Users\\kubat\\source\\repos\\ReCapProject\\Core\\Core.csproj"
+            },
             "C:\\Users\\kubat\\source\\repos\\ReCapProject\\Entites\\Entites.csproj": {
               "projectPath": "C:\\Users\\kubat\\source\\repos\\ReCapProject\\Entites\\Entites.csproj"
             }

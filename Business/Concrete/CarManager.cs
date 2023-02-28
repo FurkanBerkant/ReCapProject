@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
-    public class CarManager : CarService
+    public class CarManager : ICarService
     {
-        CarDal _carDal;
-        public CarManager(CarDal carDal)
+        ICarDal _carDal;
+        public CarManager(ICarDal carDal)
         {
             _carDal = carDal;
         }
@@ -39,24 +39,24 @@ namespace Business.Concrete
             return _carDal.GetAll();
         }
 
-        public List<Car> GetById(int id)
+        public List<Car> GetById(int CarId)
         {
-            throw new NotImplementedException();
+            return _carDal.Get(c => c.CarId == CarId);
         }
 
         public List<Car> GetCarsByBrandId(int brandId)
         {
-            throw new NotImplementedException();
+            return _carDal.GetAll(c => c.BrandId == brandId);
         }
 
         public List<Car> GetCarsByColorId(int colorId)
         {
-            throw new NotImplementedException();
+            return _carDal.GetAll(c => c.ColorId == colorId);
         }
 
         public void Update(Car car)
         {
-            throw new NotImplementedException();
+            _carDal.Update(car);
         }
     }
 

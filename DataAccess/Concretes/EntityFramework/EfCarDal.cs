@@ -1,5 +1,7 @@
-﻿using DataAccess.Abstract;
+﻿using Core.DataAccess.EntityFramework;
+using DataAccess.Abstract;
 using Entites.Concrete;
+using Entites.DTOs;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,46 +12,22 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Concretes.EntityFramework
 {
-    public class EfCarDal : CarDal
+    public class EfCarDal : EfEntityRepositoryBase<Car, ReCapDbContext>, ICarDal
     {
-
-        public void Add(Car entity)
+        public List<CarDetailDto> GetCarDetails()
         {
             using ReCapDbContext reCapDbContext = new();
-            var addedEntity=reCapDbContext.Add(entity);
-            addedEntity.State = EntityState.Added;
-            reCapDbContext.SaveChanges();
-        }
-
-        public void Delete(Car entity)
-        {
-            using ReCapDbContext reCapDbContext = new();
-            var deletedEntity=reCapDbContext.Entry(entity);
-            deletedEntity.State = EntityState.Deleted;
-            reCapDbContext.SaveChanges();
-        }
-
-        public Car Get(Expression<Func<Car, bool>> filter)
-        {
-            using ReCapDbContext reCapDbContext = new();
-#pragma warning disable CS8603 // Possible null reference return.
-            return reCapDbContext.Set<Car>()
-                .SingleOrDefault(filter);
-#pragma warning restore CS8603 // Possible null reference return.
-        }
-
-        public List<Car> GetAll(Expression<Func<Car, bool>> filter = null)
-        {
-            using ReCapDbContext reCapDbContext = new();
-            return filter == null ? reCapDbContext.Set<Car>().ToList()
-                : reCapDbContext.Set<Car>().Where(filter).ToList();
-        }
-
-        public void Update(Car entity)
-        {
-            using ReCapDbContext reCapDbContext = new();
-            var updateEntity = EntityState.Modified;
-            reCapDbContext.SaveChanges();
+            var result = from p in reCapDbContext.Cars
+                         join c in reCapDbContext.Colors on p.ColorId equals c.Id
+                         join b in reCapDbContext.Brands on p.BrandId equals b.Id
+                         select new CarDetailDto
+                         {
+                             BrandName = b.BrandName,
+                             ColorName = c.ColorName,
+                             DailyPrice = p.DailyPrice,
+                         };
+            return result.ToList();
         }
     }
+
 }
