@@ -17,7 +17,7 @@ namespace Core.DataAccess.EntityFramework
         public void Add(TEntity entity)
         {
             using TContext reCapDbContext = new();
-            var addedEntity = reCapDbContext.Add(entity);
+            var addedEntity = reCapDbContext.Entry(entity);
             addedEntity.State = EntityState.Added;
             reCapDbContext.SaveChanges();
         }

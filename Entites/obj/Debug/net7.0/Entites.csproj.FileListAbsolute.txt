@@ -10,3 +10,6 @@ C:\Users\kubat\source\repos\ReCapProject\Entites\obj\Debug\net7.0\Entites.dll
 C:\Users\kubat\source\repos\ReCapProject\Entites\obj\Debug\net7.0\refint\Entites.dll
 C:\Users\kubat\source\repos\ReCapProject\Entites\obj\Debug\net7.0\Entites.pdb
 C:\Users\kubat\source\repos\ReCapProject\Entites\obj\Debug\net7.0\ref\Entites.dll
+C:\Users\kubat\source\repos\ReCapProject\Entites\bin\Debug\net7.0\Core.dll
+C:\Users\kubat\source\repos\ReCapProject\Entites\bin\Debug\net7.0\Core.pdb
+C:\Users\kubat\source\repos\ReCapProject\Entites\obj\Debug\net7.0\Entites.csproj.CopyComplete
