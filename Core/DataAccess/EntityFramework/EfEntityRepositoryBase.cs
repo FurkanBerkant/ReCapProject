@@ -10,13 +10,14 @@ using System.Threading.Tasks;
 
 namespace Core.DataAccess.EntityFramework
 {
-    public class EfEntityRepositoryBase<TEntity,TContext>:IEntityRepository<TEntity>
+    public class EfEntityRepositoryBase<TEntity,TContext>
+        :IEntityRepository<TEntity>
         where TEntity : class,IEntity,new()
         where TContext : DbContext,new()
     {
         public void Add(TEntity entity)
         {
-            using TContext reCapDbContext = new();
+            using var reCapDbContext = new TContext();
             var addedEntity = reCapDbContext.Entry(entity);
             addedEntity.State = EntityState.Added;
             reCapDbContext.SaveChanges();
@@ -32,12 +33,13 @@ namespace Core.DataAccess.EntityFramework
 
         public TEntity Get(Expression<Func<TEntity, bool>> filter)
         {
-            using TContext reCapDbContext = new();
-            return reCapDbContext.Set<TEntity>()
-            .SingleOrDefault(filter);
+            using TContext context = new TContext();
+#pragma warning disable CS8603 // Possible null reference return.
+            return context.Set<TEntity>().SingleOrDefault(filter);
+#pragma warning restore CS8603 // Possible null reference return.
         }
 
-        public List<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
+        public IList<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
         {
             using TContext reCapDbContext = new();
             return filter == null ? reCapDbContext.Set<TEntity>().ToList()
@@ -46,9 +48,10 @@ namespace Core.DataAccess.EntityFramework
 
         public void Update(TEntity entity)
         {
-            using TContext reCapDbContext = new();
-            var updateEntity = EntityState.Modified;
-            reCapDbContext.SaveChanges();
+            using var context = new TContext();
+            var updatedEntity = context.Entry(entity);
+            updatedEntity.State = EntityState.Modified;
+            context.SaveChanges();
         }
     } 
 }

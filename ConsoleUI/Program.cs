@@ -8,14 +8,19 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            Customer customer1 = new Customer { UserId = 1, CompanyName = "Kodlama.Io" };
-            CustomerManager customerManager = new CustomerManager(new EfCustomerDal());
-            //customerManager.Add(customer1);
-            var result = customerManager.GetAll();
+            // Customer customer1 = new Customer { CompanyName = "Kodlama.Io" };
+            // CustomerManager customerManager = new(new EfCustomerDal());
+            // customerManager.Add(customer1);
+            Brand brand1 = new Brand();
+            brand1.Name = "Mercedes";
+            BrandManager brandManager = new(new EfBrandDal());
+            brandManager.Add(brand1);
+
+            var result = brandManager.GetAll();
             if (result.Succes)
-                foreach (var customer in result.Data)
+                foreach (var brand in result.Data)
                 {
-                    Console.WriteLine(customer.CompanyName);
+                    Console.WriteLine(brand.Name);
                 }
             else
             {

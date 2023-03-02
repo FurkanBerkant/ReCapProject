@@ -13,7 +13,7 @@ namespace Business.Concrete
 {
     public class RentalManager : IRentalService
     {
-        IRentalDal _rentalDal;
+        private IRentalDal _rentalDal;
 
         public RentalManager(IRentalDal rentalDal)
         {
@@ -22,19 +22,24 @@ namespace Business.Concrete
 
         public IResult Add(Rental rental)
         {
-            _rentalDal.Add(rental);
-            return new SuccessResult();
+            if (rental.ReturnDate >= DateTime.Now)
+            {
+                _rentalDal.Add(rental);
+                return new SuccessResult();
+            }
+            return new ErrorResult();
         }
 
         public IResult Delete(Rental rental)
         {
+           
             _rentalDal.Delete(rental);
             return new SuccessResult();
         }
 
         public IDataResult<List<Rental>> GetAll()
         {
-            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll());
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll().ToList());
         }
 
         public IResult GetById(int id)
