@@ -34,9 +34,7 @@ namespace Core.DataAccess.EntityFramework
         public TEntity Get(Expression<Func<TEntity, bool>> filter)
         {
             using TContext context = new TContext();
-#pragma warning disable CS8603 // Possible null reference return.
             return context.Set<TEntity>().SingleOrDefault(filter);
-#pragma warning restore CS8603 // Possible null reference return.
         }
 
         public IList<TEntity> GetAll(Expression<Func<TEntity, bool>> filter = null)
