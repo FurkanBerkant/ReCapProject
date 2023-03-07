@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilites.Results;
 using DataAccess.Abstract;
 using DataAccess.Concretes.EntityFramework;
@@ -25,7 +26,7 @@ namespace Business.Concrete
             if (rental.ReturnDate >= DateTime.Now)
             {
                 _rentalDal.Add(rental);
-                return new SuccessResult();
+                return new SuccessResult(Messages.RentalAdded);
             }
             return new ErrorResult();
         }
@@ -34,7 +35,7 @@ namespace Business.Concrete
         {
            
             _rentalDal.Delete(rental);
-            return new SuccessResult();
+            return new SuccessResult(Messages.RentalDeleted);
         }
 
         public IDataResult<List<Rental>> GetAll()
@@ -51,7 +52,7 @@ namespace Business.Concrete
         public IResult Update(Rental rental)
         {
             _rentalDal.Update(rental);
-            return new SuccessResult();
+            return new SuccessResult(Messages.RentalUpdated);
         }
     }
 }

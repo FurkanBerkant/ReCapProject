@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
-    public class CustomerManager:IBaseService<Customer>
+    public class CustomerManager:ICustomerService
     {
         ICustomerDal _customerDal;
 
@@ -27,12 +27,12 @@ namespace Business.Concrete
         public IResult Delete(Customer customer)
         {
             _customerDal.Delete(customer);
-            return new SuccessResult();
+            return new SuccessResult(Messages.CustomerDeleted);
         }
         public IResult Update(Customer customer)
         {
             _customerDal.Update(customer);
-            return new SuccessResult();
+            return new SuccessResult(Messages.CustomerUpdated);
 
         }
         public IDataResult<List<Customer>> GetAll()

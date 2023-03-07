@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class BrandsController : ControllerBase
     {
-        IBrandService _brandService;
+        readonly IBrandService _brandService;
 
         public BrandsController(IBrandService brandService)
         {
@@ -17,7 +17,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        public IActionResult Get()
+        public IActionResult GetAll()
         {
             var result= _brandService.GetAll();
             if (result.Succes)
@@ -26,8 +26,8 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result.Message);
         }
-        [HttpGet("getbyid")]
-        public IActionResult Get(int id)
+        [HttpGet("getbybrandid")]
+        public IActionResult GetByBrandId(int id)
         {
             var result = _brandService.GetById(id);
             if (result.Succes)

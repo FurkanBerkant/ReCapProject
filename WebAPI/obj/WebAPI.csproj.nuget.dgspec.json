@@ -46,6 +46,20 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
+          "dependencies": {
+            "Autofac": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Autofac.Extras.DynamicProxy": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.5.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -102,6 +116,26 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Autofac": {
+              "target": "Package",
+              "version": "[6.5.0, )"
+            },
+            "Autofac.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Autofac.Extras.DynamicProxy": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            },
+            "Castle.Core": {
+              "target": "Package",
+              "version": "[4.4.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.5.1, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[7.0.3, )"
@@ -284,9 +318,6 @@
               "C:\\Users\\kubat\\source\\repos\\ReCapProject\\Core\\Core.csproj": {
                 "projectPath": "C:\\Users\\kubat\\source\\repos\\ReCapProject\\Core\\Core.csproj"
               },
-              "C:\\Users\\kubat\\source\\repos\\ReCapProject\\DataAccess\\DataAccess.csproj": {
-                "projectPath": "C:\\Users\\kubat\\source\\repos\\ReCapProject\\DataAccess\\DataAccess.csproj"
-              },
               "C:\\Users\\kubat\\source\\repos\\ReCapProject\\Entites\\Entites.csproj": {
                 "projectPath": "C:\\Users\\kubat\\source\\repos\\ReCapProject\\Entites\\Entites.csproj"
               }
@@ -303,6 +334,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Autofac.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[7.0.3, )"

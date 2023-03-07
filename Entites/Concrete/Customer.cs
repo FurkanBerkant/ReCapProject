@@ -14,6 +14,6 @@ namespace Entites.Concrete
     {
         [Key]public int UserId { get; set; }
 
-        public string CompanyName { get; set; }
+        public string? CompanyName { get; set; }
     }
 }

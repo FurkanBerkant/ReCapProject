@@ -1,12 +1,68 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Business.Abstract;
+using Entites.Concrete;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
 {
+    [Route("api/v1/[controller]")]
+    [ApiController]
     public class RentalsController : Controller
     {
-        public IActionResult Index()
+        readonly IRentalService rentalService;
+
+        public RentalsController(IRentalService rentalService)
         {
-            return View();
+            this.rentalService = rentalService;
+        }
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var result = rentalService.GetAll();
+            if (result.Succes)
+            {
+                return Ok(result.Data);
+            }
+            return BadRequest(result.Data);
+        }
+        [HttpPost]
+        public IActionResult Post(Rental rental)
+        {
+            var result = rentalService.Add(rental);
+            if (result.Succes)
+            {
+                return Created(result.Message, rental);
+            }
+            return BadRequest(result.Message);
+        }
+        [HttpGet("getByRentalId")]
+        public IActionResult GetByRentalId(int id)
+        {
+            var result = rentalService.GetById(id);
+            if (result.Succes)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
+        [HttpPut("update")]
+        public IActionResult Update(Rental rental)
+        {
+            var result = rentalService.Update(rental);
+            if (result.Succes)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
+        }
+        [HttpDelete("delete")]
+        public IActionResult Delete(Rental rental)
+        {
+            var result = rentalService.Delete(rental);
+            if (result.Succes)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result.Message);
         }
     }
 }
