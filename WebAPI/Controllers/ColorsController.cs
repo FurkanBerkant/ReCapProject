@@ -18,7 +18,7 @@ namespace WebAPI.Controllers
         public IActionResult GetAll()
         {
             var result = _colorService.GetAll();
-            if (result.Succes)
+            if (result.Success)
             { 
                 return Ok(result.Data);
             }
@@ -28,7 +28,7 @@ namespace WebAPI.Controllers
         public IActionResult Post(Color color)
         {
             var result = _colorService.Add(color);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Created(result.Message, color);
             }
@@ -38,7 +38,7 @@ namespace WebAPI.Controllers
         public IActionResult GetByColorId(int id)
         {
             var result = _colorService.GetById(id);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -48,7 +48,7 @@ namespace WebAPI.Controllers
         public IActionResult Update(Color color)
         {
             var result = _colorService.Update(color);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -58,7 +58,7 @@ namespace WebAPI.Controllers
         public IActionResult Delete(Color color)
         {
             var result = _colorService.Delete(color);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }

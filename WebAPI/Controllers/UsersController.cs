@@ -1,5 +1,5 @@
 ﻿using Business.Abstract;
-using Entites.Concrete;
+using Core.Entites;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers
@@ -18,7 +18,7 @@ namespace WebAPI.Controllers
         public IActionResult GetAll()
         {
             var result = userService.GetAll();
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result.Data);
             }
@@ -28,7 +28,7 @@ namespace WebAPI.Controllers
         public IActionResult Post(User user)
         {
             var result = userService.Add(user);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Created(result.Message, user);
             }
@@ -38,7 +38,7 @@ namespace WebAPI.Controllers
         public IActionResult GetByUserId(int id)
         {
             var result = userService.GetById(id);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -48,7 +48,7 @@ namespace WebAPI.Controllers
         public IActionResult Update(User user)
         {
             var result = userService.Update(user);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -58,7 +58,7 @@ namespace WebAPI.Controllers
         public IActionResult Delete(User user)
         {
             var result = userService.Delete(user);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }

@@ -18,7 +18,7 @@ namespace WebAPI.Controllers
         public IActionResult GetAll()
         {
             var result = customerService.GetAll();
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result.Data);
             }
@@ -28,7 +28,7 @@ namespace WebAPI.Controllers
         public IActionResult Post(Customer customer)
         {
             var result = customerService.Add(customer);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Created(result.Message, customer);
             }
@@ -38,7 +38,7 @@ namespace WebAPI.Controllers
         public IActionResult GetByCustomerId(int id)
         {
             var result = customerService.GetById(id);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -48,7 +48,7 @@ namespace WebAPI.Controllers
         public IActionResult Update(Customer customer)
         {
             var result = customerService.Update(customer);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -58,7 +58,7 @@ namespace WebAPI.Controllers
         public IActionResult Delete(Customer customer)
         {
             var result = customerService.Delete(customer);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }

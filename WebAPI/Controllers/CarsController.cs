@@ -17,7 +17,7 @@ namespace WebAPI.Controllers
         [HttpGet]
         public IActionResult GetAll() {
             var result = carService.GetAll();
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result.Data);
             }
@@ -27,7 +27,7 @@ namespace WebAPI.Controllers
         public IActionResult Post(Car car)
         {
             var result = carService.Add(car);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Created(result.Message,car);
             }
@@ -37,7 +37,7 @@ namespace WebAPI.Controllers
         public IActionResult GetByCarId(int id) 
         {
             var result = carService.GetById(id);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -47,7 +47,7 @@ namespace WebAPI.Controllers
         public IActionResult Update(Car car) 
         {
             var result = carService.Update(car);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }
@@ -57,7 +57,7 @@ namespace WebAPI.Controllers
         public IActionResult Delete(Car car) 
         {
             var result = carService.Delete(car);
-            if (result.Succes)
+            if (result.Success)
             {
                 return Ok(result);
             }

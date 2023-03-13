@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Utilites.Results;
 using Entites.Concrete;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,51 +20,35 @@ namespace WebAPI.Controllers
         public IActionResult GetAll()
         {
             var result = _carImageService.GetAll();
-            if (result.Succes)
-            {
-                return Ok(result.Data);
-            }
-            return BadRequest(result.Data);
+            return StatusCode(result.Success ? 200 : 400 , result);
         }
+
         [HttpPost]
-        public IActionResult Post(CarImages carImages)
+        public IActionResult Post(IFormFile file, [FromForm] CarImages carImages)
         {
-            var result = _carImageService.Add(carImages);
-            if (result.Succes)
-            {
-                return Created(result.Message, carImages);
-            }
-            return BadRequest(result.Message);
+            var result = _carImageService.Add(file,carImages);
+            return StatusCode(result.Success ? 200 : 400, result);
         }
+
         [HttpGet("getByCarImageId")]
         public IActionResult GetByCarImageId(int id)
         {
             var result = _carImageService.GetById(id);
-            if (result.Succes)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result.Message);
+            return StatusCode(result.Success? 200 : 400 , result);
         }
+
         [HttpPut("update")]
-        public IActionResult Update(CarImages carImages)
+        public IActionResult Update([FromForm(Name = "Image")] IFormFile file, 
+                                            [FromForm] CarImages carImages)
         {
-            var result = _carImageService.Update(carImages);
-            if (result.Succes)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result.Message);
+            var result = _carImageService.Update(file, carImages);
+            return StatusCode(result.Success ? 200 : 400, result);
         }
         [HttpDelete("delete")]
         public IActionResult Delete(CarImages carImages)
         {
             var result = _carImageService.Delete(carImages);
-            if (result.Succes)
-            {
-                return Ok(result);
-            }
-            return BadRequest(result.Message);
+            return StatusCode(result.Success ? 200 : 400, result);
         }
     }
 }

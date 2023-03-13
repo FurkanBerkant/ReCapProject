@@ -6,7 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entites.Concrete
+namespace Core.Entites
+    
 {
     public class User:IEntity
     {
@@ -14,6 +15,8 @@ namespace Entites.Concrete
         public string? FirstName { get; set; }
         public string? LastName { get; set; }
         public string? Email { get; set; }
-        public string? Password { get; set; }
+        public byte[]? PasswordHash { get; set; }
+        public byte[]? PasswordSalt { get; set; }
+        public bool Status { get; set; }
     }
 }

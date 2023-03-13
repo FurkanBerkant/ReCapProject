@@ -10,14 +10,14 @@ namespace Core.Utilites.Results
     {
         public Result(bool succes)
         {
-            Succes = succes;
+            Success = succes;
         }
 
         public Result(bool succes, string message) : this(succes)
         {
             Message = message;
         }
-        public bool Succes { get; }
+        public bool Success { get; }
 
         public string Message { get; }
     }
