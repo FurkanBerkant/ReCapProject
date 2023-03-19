@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Core.Entites;
+using Core.Entities.Concrete;
 using Core.Utilites.Results;
 using DataAccess.Abstract;
 
@@ -17,6 +18,10 @@ namespace Business.Concrete
 
         public IResult Add(User user)
         {
+            var result = UserExists(user.Email);
+            if (!result.Success)
+                return new ErrorResult(result.Message);
+
             _userDal.Add(user);
             return new SuccessResult(Messages.UserAdded);
         }
@@ -35,14 +40,28 @@ namespace Business.Concrete
 
         public IResult GetById(int id)
         {
-            _userDal.Get(c => c.Id == id);
-            return new SuccessResult();
+            return new SuccessDataResult<User>(_userDal.Get(u => u.Id == id));
         }
-
         public IResult Update(User user)
         {
             _userDal.Update(user);
             return new SuccessResult(Messages.RentalUpdated);
+        }
+        public IDataResult<User> GetByEmail(string email)
+        {
+            return new SuccessDataResult<User>(_userDal.Get(u => u.Email == email));
+        }
+
+        public IDataResult<List<OperationClaim>> GetClaims(User user)
+        {
+            return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(user));
+        }
+        private IResult UserExists(string email)
+        {
+            var user = GetByEmail(email);
+            if (user.Data != null)
+                return new ErrorResult(Messages.UserExists);
+            return new SuccessResult();
         }
     }
 }

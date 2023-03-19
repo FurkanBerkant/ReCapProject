@@ -69,6 +69,7 @@ namespace Business.Concrete
             return new SuccessDataResult<List<CarImages>>(_carImage.GetAll(c=>c.Id==carId).ToList());
         }
 
+        [ValidationAspect(typeof(CarImageValidator))]
         public IResult Update(IFormFile file, CarImages carImage)
         {
             string newPath = uploadService.Update

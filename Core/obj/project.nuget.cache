@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "D92IU/SdnpIpt5B4WnOv/9Rtxf0P2SAkwUTWmxaquNr+cZBFWHLXhlQ0r+0zSdE4qnAnZIkZxusEwpOO4MFmtA==",
+  "dgSpecHash": "esX4TIkKb2x/RRE/P8XlC15DxZduhWFjyI4/lF1vyp5dHyZ2VTKzMgXpsdfgtZqfUfoaZ0Pg4gW3+Y6FPPdsPA==",
   "success": true,
   "projectFilePath": "C:\\Users\\kubat\\source\\repos\\ReCapProject\\Core\\Core.csproj",
   "expectedPackageFiles": [
@@ -24,6 +24,7 @@
     "C:\\Users\\kubat\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\7.0.0\\microsoft.extensions.caching.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\kubat\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
     "C:\\Users\\kubat\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\kubat\\.nuget\\packages\\microsoft.extensions.configuration.binder\\7.0.4\\microsoft.extensions.configuration.binder.7.0.4.nupkg.sha512",
     "C:\\Users\\kubat\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
     "C:\\Users\\kubat\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\kubat\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",

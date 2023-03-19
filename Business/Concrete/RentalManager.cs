@@ -12,6 +12,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core.Utilites.Business;
 
 namespace Business.Concrete
 {
@@ -24,15 +25,15 @@ namespace Business.Concrete
             _rentalDal = rentalDal;
         }
 
-        [ValidationAspect(typeof(RentalValidator))]
         public IResult Add(Rental rental)
         {
-            if (rental.ReturnDate >= DateTime.Now)
+            var result = BusinessRules.Run(IsCarReturned(rental.CarId));
+            if (result != null)
             {
-                _rentalDal.Add(rental);
-                return new SuccessResult(Messages.RentalAdded);
+                return result;
             }
-            return new ErrorResult();
+            _rentalDal.Add(rental);
+            return new SuccessResult(Messages.RentalAdded);
         }
 
         public IResult Delete(Rental rental)
@@ -57,6 +58,16 @@ namespace Business.Concrete
         {
             _rentalDal.Update(rental);
             return new SuccessResult(Messages.RentalUpdated);
+        }
+        private IResult IsCarReturned(int carId)
+        {
+            var result = _rentalDal.Get(c => c.CarId == carId && c.ReturnDate == null);
+            if (result != null)
+            {
+                return new ErrorResult(Messages.RentalCarMissing);
+            }
+            return new SuccessResult();
+
         }
     }
 }

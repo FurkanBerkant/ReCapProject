@@ -1,11 +1,10 @@
 ﻿using Azure.Identity;
-using Castle.Core.Configuration;
 using Core.Entites;
 using Core.Entities.Concrete;
+using Core.Extensions;
 using Core.Utilites.Security.Encryption;
 using Core.Utilities.Security.JWT;
-using System;
-using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;
@@ -14,12 +13,12 @@ using System.Threading.Tasks;
 
 namespace Core.Utilites.Security.JWT
 {
-    public class JwtTokenHelper : ITokenHelper
+    public class JwtHelper : ITokenHelper
     {
         private DateTime _accessTokenExpiration;
-        private IConfiguration _configuration { get; }
+        public IConfiguration _configuration { get; }
         private TokenOptions _tokenOptions;
-        public JwtTokenHelper(IConfiguration configuration)
+        public JwtHelper(IConfiguration configuration)
         {
             _configuration = configuration;
             _tokenOptions = configuration.GetSection("TokenOptions").Get<TokenOptions>();
@@ -53,7 +52,7 @@ namespace Core.Utilites.Security.JWT
             return jwt;
         }
 
-        private IEnumerable<Claim> SetClaims(User user, List<OperationClaim> operationClaims)
+        private static IEnumerable<Claim> SetClaims(User user, List<OperationClaim> operationClaims)
         {
             var claims = new List<Claim>();
             claims.AddNameIdentifier(user.Id.ToString());
